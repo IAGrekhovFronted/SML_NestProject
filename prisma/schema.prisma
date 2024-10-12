@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Role {
+  id          Int     @id @default(autoincrement())
+  description String?
+  users       User[]
+}
+
+model EmployeeWorkType {
+  id           Int            @id @default(autoincrement())
+  title        String         @unique
+  price        Int
+  EmployeeType EmployeeType[]
+  WorkRequest  WorkRequest[]
+}
+
+model EmployeeType {
+  id         Int               @id @default(autoincrement())
+  title      String            @unique
+  works      EmployeeWorkType? @relation(fields: [workTypeId], references: [id])
+  workTypeId Int?
+  employee   Employee[]
+}
+
+model User {
+  id          Int           @id @default(autoincrement())
+  email       String        @unique
+  name        String?
+  role        Role?         @relation(fields: [roleId], references: [id])
+  roleId      Int?
+  WorkRequest WorkRequest[]
+}
+
+model Employee {
+  id                   Int                    @id @default(autoincrement())
+  name                String
+  type                 EmployeeType?          @relation(fields: [EmployeeTypeId], references: [id])
+  EmployeeTypeId       Int
+  EmployeeBaseSchedule EmployeeBaseSchedule[]
+  EmployeeSlotSchedule EmployeeSlotSchedule[]
+}
+
+model EmployeeBaseSchedule {
+  id         Int       @id @default(autoincrement())
+  start      DateTime
+  end        DateTime
+  employee   Employee? @relation(fields: [employeeId], references: [id])
+  employeeId Int
+}
+
+model EmployeeSlotSchedule {
+  id          Int           @id @default(autoincrement())
+  startDate   DateTime
+  endDate     DateTime
+  employee    Employee?     @relation(fields: [employeeId], references: [id])
+  employeeId  Int
+  WorkRequest WorkRequest[]
+}
+
+model WorkRequest {
+  id                     Int                  @id @default(autoincrement())
+  user                   User                 @relation(fields: [userId], references: [id])
+  slot                   EmployeeSlotSchedule @relation(fields: [employeeSlotScheduleId], references: [id])
+  employeeWorkType       EmployeeWorkType     @relation(fields: [employeeWorkTypeId], references: [id])
+  status                 String
+  userId                 Int
+  employeeSlotScheduleId Int
+  employeeWorkTypeId     Int
+}
