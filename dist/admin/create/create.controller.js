@@ -29,14 +29,14 @@ let CreateController = class CreateController {
     EmployeeWorkType(data) {
         return this.createWorkTypeService.CreateWorkType(data);
     }
+    EmployeeType(data) {
+        return this.CreateEmployeeType.CreateEmployeeType(data);
+    }
     Employee(data) {
         return this.createEmployee.CreateEmployee(data);
     }
     BaseShedule(data) {
         return this.CreateShedule.CreateEmployee(data);
-    }
-    EmployeeType(data) {
-        return this.CreateEmployeeType.CreateEmployeeType(data);
     }
 };
 exports.CreateController = CreateController;
@@ -47,6 +47,13 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], CreateController.prototype, "EmployeeWorkType", null);
+__decorate([
+    (0, common_1.Post)('EmployeeType'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], CreateController.prototype, "EmployeeType", null);
 __decorate([
     (0, common_1.Post)('Employee'),
     __param(0, (0, common_1.Body)()),
@@ -61,13 +68,6 @@ __decorate([
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
 ], CreateController.prototype, "BaseShedule", null);
-__decorate([
-    (0, common_1.Post)('EmployeeType'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
-], CreateController.prototype, "EmployeeType", null);
 exports.CreateController = CreateController = __decorate([
     (0, common_1.Controller)('create'),
     __metadata("design:paramtypes", [create_work_type_service_1.CreateWorkTypeService,

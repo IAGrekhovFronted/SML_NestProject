@@ -14,6 +14,11 @@ export declare class CreateController {
         title: string;
         price: number;
     }>;
+    EmployeeType(data: Prisma.EmployeeTypeCreateInput): Promise<{
+        id: number;
+        title: string;
+        workTypeId: number | null;
+    }>;
     Employee(data: Prisma.EmployeeCreateInput): Promise<{
         id: number;
         name: string;
@@ -24,10 +29,5 @@ export declare class CreateController {
         start: Date;
         end: Date;
         employeeId: number;
-    }>;
-    EmployeeType(data: Prisma.EmployeeTypeCreateInput): Promise<{
-        id: number;
-        title: string;
-        workTypeId: number | null;
     }>;
 }
