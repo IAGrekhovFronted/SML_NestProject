@@ -19,12 +19,15 @@ const delete_work_type_service_1 = require("./delete/delete-work-type/delete-wor
 const delete_employee_type_service_1 = require("./delete/delete-employee-type/delete-employee-type.service");
 const delete_employee_service_1 = require("./delete/delete-employee/delete-employee.service");
 const delete_shedule_employee_service_1 = require("./delete/delete-shedule-employee/delete-shedule-employee.service");
+const find_controller_1 = require("./find/find.controller");
+const find_all_service_1 = require("./find/find-all/find-all.service");
+const find_one_service_1 = require("./find/find-one/find-one.service");
 let AdminModule = class AdminModule {
 };
 exports.AdminModule = AdminModule;
 exports.AdminModule = AdminModule = __decorate([
     (0, common_1.Module)({
-        controllers: [create_controller_1.CreateController, delete_controller_1.DeleteController],
+        controllers: [create_controller_1.CreateController, delete_controller_1.DeleteController, find_controller_1.FindController],
         providers: [
             prisma_client_service_1.PrismaService,
             create_work_type_service_1.CreateWorkTypeService,
@@ -34,7 +37,9 @@ exports.AdminModule = AdminModule = __decorate([
             delete_work_type_service_1.DeleteWorkTypeService,
             delete_employee_type_service_1.DeleteEmployeeTypeService,
             delete_employee_service_1.DeleteEmployeeService,
-            delete_shedule_employee_service_1.DeleteSheduleEmployeeService
+            delete_shedule_employee_service_1.DeleteSheduleEmployeeService,
+            find_all_service_1.FindAllService,
+            find_one_service_1.FindOneService
         ]
     })
 ], AdminModule);
