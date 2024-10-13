@@ -7,7 +7,6 @@ export class CreateEmployeeService {
     constructor(private prisma: PrismaService) { }
 
     async CreateEmployee(data: Prisma.EmployeeCreateInput) {
-        console.log("Переданные данные в запросе: ", data)
         return this.prisma.employee.create(
             { data }
         )

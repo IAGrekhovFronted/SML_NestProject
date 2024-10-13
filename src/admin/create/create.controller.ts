@@ -11,15 +11,15 @@ import { Prisma } from '@prisma/client';
 export class CreateController {
 
     constructor(
-        private createWorkTypeService: CreateWorkTypeService,
+        private createWorkType: CreateWorkTypeService,
         private createEmployee: CreateEmployeeService,
         private CreateShedule: CreateSheduleEmployeeService,
         private CreateEmployeeType: CreateEmployeeTypeService
     ) { }
 
-    @Post('EmployeeWorkType')
-    EmployeeWorkType(@Body() data: Prisma.EmployeeWorkTypeCreateInput) {
-        return this.createWorkTypeService.CreateWorkType(data)
+    @Post('WorkType')
+    WorkType(@Body() data: Prisma.EmployeeWorkTypeCreateInput) {
+        return this.createWorkType.CreateWorkType(data)
     }
 
     @Post('EmployeeType')

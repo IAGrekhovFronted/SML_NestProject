@@ -7,7 +7,6 @@ export class CreateSheduleEmployeeService {
     constructor(private prisma: PrismaService) { }
 
     async CreateEmployee(data: Prisma.EmployeeBaseScheduleCreateInput) {
-        console.log("Переданные данные в запросе: ", data)
         return this.prisma.employeeBaseSchedule.create(
             { data }
         )

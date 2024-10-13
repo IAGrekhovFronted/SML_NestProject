@@ -17,7 +17,6 @@ let CreateWorkTypeService = class CreateWorkTypeService {
         this.prisma = prisma;
     }
     async CreateWorkType(data) {
-        console.log("Переданные данные в запросе: ", data);
         return this.prisma.employeeWorkType.create({ data });
     }
 };

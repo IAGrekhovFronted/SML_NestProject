@@ -17,7 +17,6 @@ let CreateSheduleEmployeeService = class CreateSheduleEmployeeService {
         this.prisma = prisma;
     }
     async CreateEmployee(data) {
-        console.log("Переданные данные в запросе: ", data);
         return this.prisma.employeeBaseSchedule.create({ data });
     }
 };

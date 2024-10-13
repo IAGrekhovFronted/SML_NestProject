@@ -20,14 +20,14 @@ const create_shedule_employee_service_1 = require("./create-shedule-employee/cre
 const create_employee_type_service_1 = require("./create-employee-type/create-employee-type.service");
 const client_1 = require("@prisma/client");
 let CreateController = class CreateController {
-    constructor(createWorkTypeService, createEmployee, CreateShedule, CreateEmployeeType) {
-        this.createWorkTypeService = createWorkTypeService;
+    constructor(createWorkType, createEmployee, CreateShedule, CreateEmployeeType) {
+        this.createWorkType = createWorkType;
         this.createEmployee = createEmployee;
         this.CreateShedule = CreateShedule;
         this.CreateEmployeeType = CreateEmployeeType;
     }
-    EmployeeWorkType(data) {
-        return this.createWorkTypeService.CreateWorkType(data);
+    WorkType(data) {
+        return this.createWorkType.CreateWorkType(data);
     }
     EmployeeType(data) {
         return this.CreateEmployeeType.CreateEmployeeType(data);
@@ -41,12 +41,12 @@ let CreateController = class CreateController {
 };
 exports.CreateController = CreateController;
 __decorate([
-    (0, common_1.Post)('EmployeeWorkType'),
+    (0, common_1.Post)('WorkType'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], CreateController.prototype, "EmployeeWorkType", null);
+], CreateController.prototype, "WorkType", null);
 __decorate([
     (0, common_1.Post)('EmployeeType'),
     __param(0, (0, common_1.Body)()),

@@ -3,12 +3,12 @@ import { PrismaService } from 'src/prisma-client/prisma-client.service';
 import { Prisma } from '@prisma/client';
 
 @Injectable()
-export class CreateEmployeeTypeService {
+export class DeleteEmployeeService {
     constructor(private prisma: PrismaService) { }
 
-    async CreateEmployeeType(data: Prisma.EmployeeTypeCreateInput) {
-        return this.prisma.employeeType.create(
-            { data }
+    async DeleteEmployee(where: Prisma.EmployeeWhereUniqueInput) {
+        return this.prisma.employee.delete(
+            { where }
         )
     }
 }

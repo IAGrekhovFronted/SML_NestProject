@@ -8,7 +8,6 @@ export class CreateWorkTypeService {
     constructor(private prisma: PrismaService) { }
 
     async CreateWorkType(data: Prisma.EmployeeWorkTypeCreateInput) {
-        console.log("Переданные данные в запросе: ", data)
         return this.prisma.employeeWorkType.create(
             { data }
         )

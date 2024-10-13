@@ -4,12 +4,12 @@ import { CreateSheduleEmployeeService } from './create-shedule-employee/create-s
 import { CreateEmployeeTypeService } from './create-employee-type/create-employee-type.service';
 import { Prisma } from '@prisma/client';
 export declare class CreateController {
-    private createWorkTypeService;
+    private createWorkType;
     private createEmployee;
     private CreateShedule;
     private CreateEmployeeType;
-    constructor(createWorkTypeService: CreateWorkTypeService, createEmployee: CreateEmployeeService, CreateShedule: CreateSheduleEmployeeService, CreateEmployeeType: CreateEmployeeTypeService);
-    EmployeeWorkType(data: Prisma.EmployeeWorkTypeCreateInput): Promise<{
+    constructor(createWorkType: CreateWorkTypeService, createEmployee: CreateEmployeeService, CreateShedule: CreateSheduleEmployeeService, CreateEmployeeType: CreateEmployeeTypeService);
+    WorkType(data: Prisma.EmployeeWorkTypeCreateInput): Promise<{
         id: number;
         title: string;
         price: number;
